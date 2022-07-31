@@ -21,9 +21,9 @@ p {
 EOF
 
 curl -s -X 'GET' \
-    'https://hp-api.herokuapp.com/api/characters' \
+    'https://fedeperin-harry-potter-api-en.herokuapp.com/characters' \
     -H 'accept: application/json' | \
-    jq -r '.[] | "\(.image) \(.name)"' | \
+    jq -r '.[] | "\(.image) \(.character)"' | \
     while read IMAGE NAME
 
 do

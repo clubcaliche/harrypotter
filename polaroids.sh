@@ -125,18 +125,17 @@ body {
 EOF
 
 curl -s -X 'GET' \
-    'https://hp-api.herokuapp.com/api/characters' \
+    'https://fedeperin-harry-potter-api-en.herokuapp.com/characters' \
     -H 'accept: application/json' | \
-    #jq -r '.[] | "\(.image) \(.name)"' | \
-    jq -r '.[] | .name' | \
-    while read NAME
+    jq -r '.[] | "\(.image) \(.character)"' | \
+    while read IMAGE NAME
 
 do
 
     cat << EOF >> polaroids.html
 
     <div class="item">
-      <div class="polaroid"><img src='https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png'>
+      <div class="polaroid"><img src='$IMAGE'>
         <div class="caption">$NAME</div>
       </div>
     </div>
